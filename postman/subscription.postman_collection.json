@@ -1,0 +1,34 @@
+{
+  "info": {
+    "name": "Lab 2 - GraphQL subscription (SSE)",
+    "description": "Обязательная subscription из задания. Импортируйте коллекцию в Postman, откройте Greetings и нажмите Send. Ожидается HTTP 200, Content-Type: text/event-stream и несколько событий next с непустым data.greetings. Остановите поток кнопкой Cancel после получения событий.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "graphql_url",
+      "value": "https://graphql.postman-echo.com/graphql",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Greetings - SSE subscription",
+      "request": {
+        "method": "POST",
+        "header": [
+          {"key": "Content-Type", "value": "application/json"},
+          {"key": "Accept", "value": "text/event-stream"}
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"query\": \"subscription Greetings { greetings }\"\n}",
+          "options": {"raw": {"language": "json"}}
+        },
+        "url": "{{graphql_url}}",
+        "description": "Поток SSE: event: next; data содержит GraphQL-объект с data.greetings и без errors. Это HTTP-запрос, а не WebSocket-подписка."
+      },
+      "response": []
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+============================= test session starts ==============================
+platform darwin -- Python 3.13.5, pytest-9.1.1, pluggy-1.6.0 -- /Library/Frameworks/Python.framework/Versions/3.13/bin/python3
+cachedir: .pytest_cache
+rootdir: /Users/tipok/code/mts/lab2
+configfile: pytest.ini
+testpaths: tests
+plugins: anyio-4.9.0, langsmith-0.8.7, platformdirs-4.12.1
+collecting ... collected 8 items
+
+tests/test_auth.py::test_login_token_grants_access_to_current_user PASSED [ 12%]
+tests/test_auth.py::test_current_user_rejects_unauthorized_request[missing-token] PASSED [ 25%]
+tests/test_auth.py::test_current_user_rejects_unauthorized_request[invalid-token] PASSED [ 37%]
+tests/test_auth.py::test_login_rejects_invalid_credentials[username] PASSED [ 50%]
+tests/test_auth.py::test_login_rejects_invalid_credentials[password] PASSED [ 62%]
+tests/test_graphql.py::test_query_returns_greeting_for_supplied_person PASSED [ 75%]
+tests/test_graphql.py::test_mutation_creates_person_with_expected_fields PASSED [ 87%]
+tests/test_rest.py::test_create_patch_get_post PASSED                    [100%]
+
+-- generated xml file: /Users/tipok/code/mts/lab2/evidence/pytest-results.xml --
+============================== 8 passed in 10.57s ==============================
